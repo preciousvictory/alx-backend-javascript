@@ -5,7 +5,10 @@ export default function cleanSet(set, startString) {
   }
   for (const value of set.values()) {
     if (typeof value === 'string' && value.startsWith(startString)) {
-      like.push(value.split(startString)[1]);
+      const endStr = value.split(startString)[1];
+      if (endStr && endStr !== value) {
+        like.push(endStr);
+      }
     }
   }
   return like.join('-');
