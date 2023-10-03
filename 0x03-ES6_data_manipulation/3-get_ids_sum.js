@@ -8,11 +8,10 @@
  * @returns
  */
 export default function getStudentIdsSum(students) {
-  if (!Array.isArray(students)) {
-    return [];
-  }
-  const sum = students.reduce((accumulator, currentValue) => accumulator + currentValue.id,
-    0,
+  if (students instanceof Array) {
+    return students.reduce((accumulator, currentValue) => accumulator + currentValue.id, 0,
   );
-  return sum;
+  }
+
+  return [];
 }
