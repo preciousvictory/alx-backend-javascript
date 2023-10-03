@@ -6,16 +6,16 @@ export default function getListStudents() {
       "location": "San Francisco"
     },
     {
-      "id": 1,
+      "id": 2,
       "firstName": "James",
       "location": "Columbia"
     },
     {
-      "id": 1,
+      "id": 5,
       "firstName": "Serena",
       "location": "San Francisco"
     }
   ]
 
-  return students
-i}
+  return students;
+}
