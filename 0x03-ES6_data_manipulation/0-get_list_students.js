@@ -1,3 +1,7 @@
+/**
+ * return list of students.
+ * @returns {{id: Number, firstName: String, location: String}[]}
+ */
 export default function getListStudents() {
   const students = [
     {
@@ -15,7 +19,7 @@ export default function getListStudents() {
       "firstName": "Serena",
       "location": "San Francisco"
     }
-  ]
+  ];
 
   return students;
 }
