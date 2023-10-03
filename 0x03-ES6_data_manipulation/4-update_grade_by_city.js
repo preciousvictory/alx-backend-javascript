@@ -6,7 +6,7 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
 
       return {...student, 'grade' : value}
     });
+    return added.filter((student) => student.location === city)
   }
-
-  return added.filter((student) => student.location === city)
+  return [];
 }
