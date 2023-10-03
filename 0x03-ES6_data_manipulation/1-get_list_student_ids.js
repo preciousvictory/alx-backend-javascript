@@ -3,8 +3,6 @@ export default function getListStudentIds(data) {
     return [];
   }
   let ids = [];
-  data.map(student => {
-    ids.push(student.id)
-  });
+  data.map(student => ids.push(student.id));
   return ids;
 }
