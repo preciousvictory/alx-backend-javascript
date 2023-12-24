@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "chai-http": "^4.3.0",
+    "eslint-config-airbnb": "^19.0.4",
     "express": "^4.17.1"
   },
   "devDependencies": {
@@ -29,4 +30,3 @@
     "sinon": "^7.5.0"
   }
 }
-

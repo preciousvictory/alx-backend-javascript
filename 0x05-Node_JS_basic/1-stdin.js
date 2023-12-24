@@ -8,6 +8,6 @@ process.stdin.on('readable', function() {
   }
 });
 
-process.on('exit', function() {
+process.on('exit', () => {
   console.log('This important software is now closing');
 });
