@@ -9,5 +9,5 @@ process.stdin.on('readable', function() {
 });
 
 process.on('exit', function() {
-  console.log('This important software is now closing\n');
+  console.log('This important software is now closing');
 });
