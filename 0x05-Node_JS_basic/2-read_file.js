@@ -3,16 +3,16 @@ const fs = require('fs');
 const countStudents = (path) => {
   try {
     const data = fs.readFileSync(path, 'utf8').trim();
-    const rows = data.split("\n");
+    const rows = data.split('\n');
     rows.shift();
-    let students = [];
-    for (let i = 0; i < rows.length; i++) {
-      students.push(rows[i].split(","));
+    const students = [];
+    for (let i = 0; i < rows.length; i + 1) {
+      students.push(rows[i].split(','));
     }
 
     console.log('Number of students: %s', students.length);
-    let fields = [];
-    for (let i = 0; i < students.length; i++) {
+    const fields = [];
+    for (let i = 0; i < students.length; i + 1) {
       const student = students[i];
       if (!fields.includes(student[student.length - 1])) {
         fields.push(student[student.length - 1]);
@@ -20,10 +20,10 @@ const countStudents = (path) => {
     }
 
     fields.forEach((field) => {
-      person = students.filter((student) => {
+      let person = students.filter((student) => {
         if (student[student.length - 1] == field) {
-	  return student;
-	}
+          return student;
+        }
       }).map((student) => {
 	return [student[0]].join(",");
       });
