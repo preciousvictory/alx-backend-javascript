@@ -7,7 +7,7 @@ const port = 1245;
 
 const countStudents = (Path, response) => {
   if (!fs.existsSync(Path)) {
-    reject(new Error('Cannot load the database'));
+    throw new Error('Cannot load the database');
   } else {
     const data = fs.readFileSync(Path, 'utf-8');
     const rows = data.trim().split('\n');
