@@ -7,7 +7,8 @@ const port = 1245;
 
 const countStudents = (Path, response) => {
   if (!fs.existsSync(Path)) {
-    throw new Error('Cannot load the database');
+    //throw new Error('Cannot load the database');
+    return response;
   } else {
     const data = fs.readFileSync(Path, 'utf-8');
     const rows = data.trim().split('\n');
@@ -33,8 +34,8 @@ const countStudents = (Path, response) => {
       }).map((student) => {return [student[0]].join(",")});
       response.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
     });
-    return response;
   }
+  return response;
 }
 
 const app = http.createServer((req, res) => {
