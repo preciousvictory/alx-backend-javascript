@@ -1,48 +1,40 @@
 const fs = require('fs');
 
-async function countStudents(path) {
-  if (fs.existsSync(path)) {
-    return new Promise((resolve) => {
-      fs.readFile(path, 'utf8', (err, data) => {
-        if (err) {
-          throw Error('Cannot load the database');
-        }
-    const rows = data.split('\n');
-    rows.shift();
-    const students = [];
-    for (let i = 0; i < rows.length; i + 1) {
-      students.push(rows[i].split(','));
+const countStudents = (Path) => new Promise((resolve, reject) => {
+  fs.readFile(Path, 'utf-8', (err, data) => {
+    if (err) {
+      reject(new Error('Cannot load the database'));
     }
-
-    console.log('Number of students: %s', students.length);
-    const fields = [];
-    for (let i = 0; i < students.length; i + 1) {
-      const student = students[i];
-      if (!fields.includes(student[student.length - 1])) {
-        fields.push(student[student.length - 1]);
-      }
-    }
-
-    fields.forEach((field) => {
-      let person = students.filter((student) => {
-        if (student[student.length - 1] == field) {
-          return student;
-        }
-      }).map((student) => {
-	return [student[0]].join(",");
+    if (data) {
+      const rows = data.trim().split('\n');
+      rows.shift();
+      const students = [];
+      rows.forEach((row) => {
+        students.push(row.split(','));
       });
-      console.log('Number of students in %s: %d. List: %s', field, person.length, person.join(', '));
-    });
-    resolve(students);
-  });
-    });
-  }
-  throw new Error('Cannot load the database');
-  // console.error(err); 
-}
 
-//(async() => {
-//  console.log(await countStudents(path));
-//})();
+      console.log('Number of students: %s', students.length);
+
+      const fields = [];
+      students.forEach((student) => {
+        if (!fields.includes(student[student.length - 1])) {
+          fields.push(student[student.length - 1]);
+        }
+      });
+
+      fields.forEach((field) => {
+        let person = students.filter((student) => {
+          if (student[student.length - 1] == field) {
+            return student;
+          }
+        }).map((student) => {
+    	  return [student[0]].join(",");
+        });
+        console.log('Number of students in %s: %d. List: %s', field, person.length, person.join(', '));
+      });
+      resolve(true);
+    }
+  });
+});
 
 module.exports = countStudents;
