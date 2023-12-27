@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const url = require('url');
 
 const hostname = '127.0.0.1';
 const port = 1245;
@@ -28,13 +27,11 @@ const countStudents = (Path) => new Promise((resolve, reject) => {
       });
 
       fields.forEach((field) => {
-        let person = students.filter((student) => {
-          if (student[student.length - 1] == field) {
+        const person = students.filter((student) => {
+          if (student[student.length - 1] === field) {
             return student;
           }
-        }).map((student) => {
-    	  return [student[0]].join(",");
-        });
+        }).map((student) => return [student[0]].join(","))
         console.log('Number of students in %s: %d. List: %s', field, person.length, person.join(', '));
       });
       resolve(true);
