@@ -21,7 +21,7 @@ const readDatabase = (Path) => new Promise((resolve, reject) => {
         }
       });
 
-      fieldName = {}
+      const fieldName = {};
       fields.forEach((field) => {
 	let person = [];
         for (const i in students) {
@@ -32,7 +32,7 @@ const readDatabase = (Path) => new Promise((resolve, reject) => {
         }
 	fieldName[field] = person;
       });
-      resolve(fieldName);
+      resolve(students);
     }
   });
 });
