@@ -1,5 +1,10 @@
 import readDatabase from '../utils';
 
+/**
+ * The list of supported majors.
+ */
+const VALID_MAJORS = ['CS', 'SWE'];
+
 class StudentsController {
   static getAllStudents(request, response) {
     const path = process.argv.length > 2 ? process.argv[2] : '';
@@ -25,14 +30,19 @@ class StudentsController {
         });
 	response.status(200).send(responseText.join('\n'));
       })
-      .catch((error) => {
-	 response.status(500).send(error);
+      .catch((err) => {
+	 response.status(500).send(err instanceof Error ? err.message : err.toString());
       });
   }
 
   static getAllStudentsByMajor(request, response) {
     const path = process.argv.length > 2 ? process.argv[2] : '';
     const { major } = request.params;
+
+    if (!VALID_MAJORS.includes(major)) {
+      response.status(500).send('Major parameter must be CS or SWE');
+      return;
+    }
 
     readDatabase(path)
       .then((students) => {
@@ -60,8 +70,8 @@ class StudentsController {
 
         response.status(200).send(`List: ${majorNames}`);
       })
-      .catch((error) => {
-         response.status(500).send('Major parameter must be CS or SWE');
+      .catch((err) => {
+         response.status(500).send(err instanceof Error ? err.message : err.toString());
       });
   }
 }
