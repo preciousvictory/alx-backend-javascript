@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const readDatabase = (Path) => new Promise((resolve, reject) => {
   fs.readFile(Path, 'utf-8', (err, data) => {
-    if (err) {     
+    if (err) {
       reject(new Error('Cannot load the database'));
     }
     if (data) {
