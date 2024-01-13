@@ -6,10 +6,10 @@ describe('calculateNumber', () => {
     it('checking if numbers round', () => {
         assert.equal(calculateNumber(1, 3), 4);
     });
-    it('checking if numbers round', () => {
+    it('checking if numbers round 2nd round', () => {
         assert.equal(calculateNumber(1, 3.7), 5);
     });
-	it('checking if numbers round 3nd round', () => {
+    it('checking if numbers round 3nd round', () => {
         assert.equal(calculateNumber(1.2, 3.7), 5);
     });
     it('checking if numbers round 4nd round', () => {
