@@ -15,4 +15,7 @@ describe('calculateNumber', () => {
     it('checking if numbers round 4nd round', () => {
         assert.equal(calculateNumber(1.5, 3.7), 6);
     });
+    it('checking negative return', () => {
+        assert.equal(calculateNumber(-1.4, -3.9), -5);
+    });
 });
