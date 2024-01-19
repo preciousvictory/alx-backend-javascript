@@ -11,12 +11,11 @@ describe('sendPaymentRequestToApi', () => {
     dummy.returns(10);
 
     sendPaymentRequestToApi(200, 2);
-    expect(dummy.calledWith('SUM', 100, 20)).to.be.true;
+    expect(dummy.calledWith('SUM', 200, 2)).to.be.true;
     expect(dummy.callCount).to.be.equal(1);
-    expect(bigBro.calculateNumber.calledWith('SUM', 200, 2)).to.be.true;
-    expect(bigBri.calculateNumber.callCount).to.be.equal(1);
-
-    dummy.restore();	  
-    bigBro.calculateNumber.restore();
+    expect(bigBrother.log.calledWith('The total is: 10')).to.be.true;
+    expect(bigBrother.log.callCount).to.be.equal(1);
+    dummy.restore();
+    bigBrother.log.restore();
   });
 });
