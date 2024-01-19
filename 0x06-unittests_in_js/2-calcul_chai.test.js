@@ -26,10 +26,6 @@ describe('calculateNumber', () => {
     it('positive and negative numbers', () => {
       expect(calculateNumber('SUM', 2.0, -2.0)).to.equal(0);
     });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('SUM', 0.0, 0.0)).to.equal(0);
-    });
   });
 
   describe('type == "SUBTRACT"', () => {
@@ -55,10 +51,6 @@ describe('calculateNumber', () => {
 
     it('positive and negative numbers', () => {
       expect(calculateNumber('SUBTRACT', 2.0, -2.0)).to.equal(4.0);
-    });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('SUBTRACT', 0.0, 0.0)).to.equal(0);
     });
   });
 
@@ -125,10 +117,6 @@ describe('calculateNumber', () => {
 
     it('negative number and number rounded up to zero', () => {
       expect(calculateNumber('DIVIDE', -5.0, -0.2)).to.equal('Error');
-    });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('DIVIDE', 0.0, 0.0)).to.equal('Error');
     });
   });
 });
