@@ -12,6 +12,7 @@ const Utils = {
     } else {
 	return 'Error';
     }
-}
+  }
+};
 
 module.exports = Utils;
