@@ -56,5 +56,5 @@ describe('API integration test', () => {
         .to.be.deep.equal({payment_methods: {credit_cards: true, paypal: false}});
       done();
     });
-  })
+  });
 });
