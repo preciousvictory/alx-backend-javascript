@@ -24,15 +24,15 @@ class StudentsController {
             if (student[student.length - 1] === field) {
               return student;
             }
-	    return; // eslint-disable-line no-use-before-define
-          }).map((student) => { return [student[0]].join(',') }); // eslint-disable-line no-use-before-define
+	    return; // eslint-disable-line
+          }).map((student) => { return [student[0]].join(',') }); // eslint-disable-line
           responseText.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
-          return; // eslint-disable-line no-use-before-define
+          return; // eslint-disable-line
         });
-	response.status(200).send(responseText.join('\n')); // eslint-disable-line no-use-before-define
+	response.status(200).send(responseText.join('\n')); // eslint-disable-line
       })
       .catch((err) => {
-	 response.status(500).send(err instanceof Error ? err.message : err.toString()); // eslint-disable-line no-use-before-define
+	 response.status(500).send(err instanceof Error ? err.message : err.toString()); // eslint-disable-line
       });
   }
 
