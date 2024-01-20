@@ -1,11 +1,10 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
 
-const HOST = 'localhost';
-const PORT = 1245;
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
+const PORT = 1245;
 
-const app = http.createServer();
+const app = express();
 
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
