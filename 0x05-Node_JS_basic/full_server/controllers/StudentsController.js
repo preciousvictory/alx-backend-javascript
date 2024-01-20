@@ -24,10 +24,9 @@ class StudentsController {
             if (student[student.length - 1] === field) {
               return student;
             }
-	    return;
           }).map((student) => { return [student[0]].join(',') });
-          responseText.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
-          return;
+          responseText.push(`rumber of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
+          // eslint-disable-next-line no-use-before-define
         });
 	response.status(200).send(responseText.join('\n'));
       })
