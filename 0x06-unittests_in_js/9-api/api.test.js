@@ -26,17 +26,18 @@ describe('API integration test', () => {
     });
   });
 
-  it('test response status code of cart/ with positive integer id', (done) => {
-    request.get(`${API_URL}/20`, (err, res, body) => {
-      expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Payment methods for cart 20');
+   it('test response status code of cart/ with negative id', (done) => {
+    const id = -47;
+    request.get(`${API_URL}/${id}`, (err, res, body) => {
+      expect(res.statusCode).to.equal(404);
       done();
     });
   });
 
-  it('GET /cart/:id returns 404 response for on-numeric values in :id', (done) => {
-    request.get(`${API_URL}/cart/num`, (_err, res, _body) => {
-      expect(res.statusCode).to.be.equal(404);
+  it('test response status code of cart/ with non-numeric id ', (done) => {
+    const id = 'num';
+    request.get(`${API_URL}/${id}`, (err, res, body) => {
+      expect(res.statusCode).to.equal(404);
       done();
     });
   });
