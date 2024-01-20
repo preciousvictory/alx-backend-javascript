@@ -27,6 +27,7 @@ app.post('/login', (req, res) => {
   if (req.body) {
     username = req.body.userName;
   }
+
   res.send(`Welcome ${username}`);
 });
 
