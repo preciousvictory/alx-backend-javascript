@@ -24,15 +24,15 @@ class StudentsController {
             if (student[student.length - 1] === field) {
               return student;
             }
-	    return; // eslint-disable-line no-use-before-define
-          }).map((student) => return [student[0]].join(','));
+	    return;
+          }).map((student) => { return [student[0]].join(',') });
           responseText.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
-          return; // eslint-disable-line no-use-before-define
+          return;
         });
-        response.status(200).send(responseText.join('\n'));
+	response.status(200).send(responseText.join('\n'));
       })
       .catch((err) => {
-        response.status(500).send(err instanceof Error ? err.message : err.toString());
+	 response.status(500).send(err instanceof Error ? err.message : err.toString());
       });
   }
 
@@ -47,7 +47,7 @@ class StudentsController {
 
     readDatabase(path)
       .then((students) => {
-      const fields = [];
+	const fields = [];
         students.forEach((student) => {
           if (!fields.includes(student[student.length - 1])) {
             fields.push(student[student.length - 1]);
