@@ -11,8 +11,7 @@ class StudentsController {
 
     readDatabase(path)
       .then((students) => {
-        const responseText = ['This is the list of our students']
-
+        const responseText = ['This is the list of our students'];
         const fields = [];
         students.forEach((student) => {
           if (!fields.includes(student[student.length - 1])) {
@@ -25,8 +24,10 @@ class StudentsController {
             if (student[student.length - 1] === field) {
               return student;
             }
-          }).map((student) => {return [student[0]].join(",")});
-            responseText.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
+	    return;
+          }).map((student) => { return [student[0]].join(',') });
+          responseText.push(`Number of students in ${field}: ${person.length}. List: ${person.join(', ')}`);
+          return;
         });
 	response.status(200).send(responseText.join('\n'));
       })
