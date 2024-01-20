@@ -47,7 +47,7 @@ class StudentsController {
 
     readDatabase(path)
       .then((students) => {
-	const fields = []; // eslint-disable-line no-use-before-define
+	const fields = []; // eslint-disable-line
         students.forEach((student) => {
           if (!fields.includes(student[student.length - 1])) {
             fields.push(student[student.length - 1]);
@@ -56,23 +56,23 @@ class StudentsController {
 
         const fieldName = {};
         fields.forEach((field) => {
-          let person = [];
-          for (const i in students) {
+          let person = []; // eslint-disable-line
+          for (const i in students) { // eslint-disable-line
             const student = students[i];
-            if (student[student.length - 1] == field) {
+            if (student[student.length - 1] === field) {
               person.push(student[0]);
             }
           }
           fieldName[field] = person;
         });
-	console.log(fieldName);
+	console.log(fieldName); // eslint-disable-line
 
-	const majorNames = fieldName[major].join(', ');
+	const majorNames = fieldName[major].join(', '); // eslint-disable-line
 
         response.status(200).send(`List: ${majorNames}`);
       })
       .catch((err) => {
-         response.status(500).send(err instanceof Error ? err.message : err.toString());
+         response.status(500).send(err instanceof Error ? err.message : err.toString());  // eslint-disable-line
       });
   }
 }
