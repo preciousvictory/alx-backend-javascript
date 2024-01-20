@@ -26,19 +26,19 @@ describe('API integration test', () => {
     });
   });
 
-   it('test response status code of cart/ with negative id', (done) => {
-    const id = -47;
+  it('test response status code of cart/ with negative id', (done) => {
+    const id = -25;
     request.get(`${API_URL}/${id}`, (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
     });
   });
 
-  it('test response status code of cart/ with non-numeric id ', (done) => {
-    const id = 'xza';
-    request.get(`{API_URL}/cart/${id}}`, (err, res, body) => {
-      expect(res.statusCode).to.equal(404);
+  it('GET /cart/:id returns 404 response for non-numeric values in :id', (done) => {
+    request.get(`${API_URL}/cart/d200-44a5-9de6`, (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
       done();
     });
+
   });
 });
