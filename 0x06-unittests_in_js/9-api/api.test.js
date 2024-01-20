@@ -28,15 +28,15 @@ describe('API integration test', () => {
 
    it('test response status code of cart/ with negative id', (done) => {
     const id = -47;
-    request.get(`${API_URL}/${id}`, (err, res, body) => {
+    request.get(`${API_URL}/cart/${id}`, (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
     });
   });
 
   it('test response status code of cart/ with non-numeric id ', (done) => {
-    const id = 'axzasd4556fds';
-    request.get(`${API_URL}/${id}`, (err, res, body) => {
+    const id = 'xza';
+    request.get(`{API_URL}/cart/${id}}`, (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
     });
