@@ -28,7 +28,7 @@ describe('API integration test', () => {
 
   it('test response status code of cart/ with positive integer id', (done) => {
     request.get(`${API_URL}/20`, (err, res, body) => {
-      expect(res.statusCode).to.equal(200);
+      expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Payment methods for cart 20');
       done();
     });
