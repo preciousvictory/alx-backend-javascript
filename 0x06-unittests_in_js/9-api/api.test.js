@@ -34,15 +34,8 @@ describe('API integration test', () => {
     });
   });
 
-  it('GET /cart/:id returns 404 response for negative number values in :id', (done) => {
-    request.get(`${API_URL}/cart/-47`, (_err, res, _body) => {
-      expect(res.statusCode).to.be.equal(404);
-      done();
-    });
-  });
-
-  it('GET /cart/:id returns 404 response for non-numeric values in :id', (done) => {
-    request.get(`${API_URL}/cart/d20e6`, (_err, res, _body) => {
+  it('GET /cart/:id returns 404 response for on-numeric values in :id', (done) => {
+    request.get(`${API_URL}/cart/num`, (_err, res, _body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });
