@@ -35,7 +35,7 @@ describe('API integration test', () => {
   });
 
   it('test response status code of cart/ with non-numeric id ', (done) => {
-    const id = 'num';
+    const id = 'd200-44a5-9de6';
     request.get(`${API_URL}/${id}`, (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
