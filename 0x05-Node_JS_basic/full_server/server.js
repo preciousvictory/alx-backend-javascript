@@ -1,4 +1,4 @@
-import routes from './routes/index.js';
+import routes from './routes/index.js'; // eslint-disable-line
 
 const express = require('express');
 
