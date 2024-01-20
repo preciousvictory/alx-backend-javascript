@@ -42,9 +42,9 @@ describe('API integration test', () => {
   });
 
   it('POST /login returns valid response', (done) => {
-    request.post(`${API_URL}/login`, {json: {userName: 'Victory'}}, (_err, res, body) => {
+    request.post(`${API_URL}/login`, {json: {userName: 'Pinkbrook'}}, (_err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Welcome Victory');
+      expect(body).to.be.equal('Welcome Pinkbrook');
       done();
     });
   });
