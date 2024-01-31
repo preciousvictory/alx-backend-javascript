@@ -1,0 +1,29 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "unit tests in js introduction ",
+  "main": "0-calcul.js",
+  "author": "Victory Abiodun-Omoniyi <victoryexcel2018@gmail.com>",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "^5.0.0",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.3",
+    "request": "^2.88.2",
+    "sinon": "^17.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/preciousvictory/alx-backend-javascript"
+  },
+  "bugs": {
+    "url": "https://github.com/preciousvictory/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/reciousvictory/alx-backend-javascript/blob/main/0x06-unittests_in_js/README.md",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
